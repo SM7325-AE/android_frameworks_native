@@ -123,6 +123,9 @@ public:
     // Get the debug layers to load.
     const std::string& getDebugLayersGLES();
 
+    int64_t getBlobCacheQuotaBytes();
+    void setBlobCacheQuotaBytes(int64_t cacheBytes);
+
 private:
     enum UseAngle { UNKNOWN, YES, NO };
 
@@ -164,6 +167,8 @@ private:
     std::string mDebugLayersGLES;
     // Additional debug layers search path.
     std::string mLayerPaths;
+    // Blob cache quota bytes
+    int64_t mBlobCacheQuotaBytes;
     // This mutex protects the namespace creation.
     std::mutex mNamespaceMutex;
     // Updatable driver namespace.
