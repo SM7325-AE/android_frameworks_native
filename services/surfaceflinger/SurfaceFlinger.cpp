@@ -6321,7 +6321,7 @@ void SurfaceFlinger::setPowerModeInternal(const sp<DisplayDevice>& display, hal:
                 mScheduler->resyncToHardwareVsync(true, refreshRate);
             }
         } else if ((mPluggableVsyncPrioritized && (displayId != getPrimaryDisplayIdLocked())) ||
-                    displayId == getPrimaryDisplayIdLocked()) {
+                    (!getHwComposer().isHeadless() && (displayId == getPrimaryDisplayIdLocked()))) {
             updateVsyncSource();
 
         }
